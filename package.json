@@ -2,8 +2,8 @@
   "name": "day-23",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "homepage": "https://themiddnight.github.io/BorntoDev-FEBC-DAY23/",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
