@@ -6,7 +6,7 @@ import Checkout from "./pages/Checkout"
 import NotFound from "./pages/NotFound"
 
 const router = createBrowserRouter([
-    { 
+    {
         path: '/',
         errorElement: <NotFound />,
         children: [
@@ -15,7 +15,10 @@ const router = createBrowserRouter([
             { path: 'checkout', element: <Checkout /> },
         ]
     },
-])
+],
+    { basename: import.meta.env.DEV ? '/' : '/BorntoDev-FEBC-DAY23/' }
+)
+
 
 export default function Routes() {
     return <RouterProvider router={router} />
