@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useLocation } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
@@ -32,9 +32,7 @@ type CommentType = {
 }
 
 function Product() {
-
-	const location = useLocation()
-	const id: string = location.pathname.split('/')[1]
+	const { id } = useParams<{ id: string }>()
 
 	const [loading, setLoading] = useState(false)
 	const [product, setProduct] = useState({

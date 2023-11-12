@@ -1,12 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { blueGrey } from "@mui/material/colors"
 
-import Products from "./pages/Products"
-import Product from "./pages/Product"
-import Checkout from "./pages/Checkout"
-import NotFound from "./pages/NotFound"
+import Routes from './routes'
 
 const theme = createTheme({
   palette: {
@@ -29,14 +24,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Products />} />
-          <Route path="/:id" element={<Product />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes />
     </ThemeProvider>
   )
 }

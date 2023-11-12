@@ -44,7 +44,7 @@ export default function ProductCard({ id, title, brand, description, image, pric
         >
             <CardMedia
                 component='a'
-                href={'/' + id}
+                href={'/product/' + id}
                 sx={{ height: 250, margin: 3 }}
                 image={image}
                 title={title}
@@ -65,7 +65,7 @@ export default function ProductCard({ id, title, brand, description, image, pric
                     gutterBottom
                     variant="h5"
                     component='a'
-                    href={'/' + id}
+                    href={'/product/' + id}
                     sx={{
                         textDecoration: 'none',
                         color: 'inherit',
@@ -100,7 +100,7 @@ export default function ProductCard({ id, title, brand, description, image, pric
             <CardActions sx={{ paddingInline: 3 }}>
                 <Stack direction="row" spacing={1}>
                     <Chip color='primary' label='Add to Cart' onClick={addToCart}></Chip>
-                    <Chip component='a' href={'/' + id} label='View More' onClick={handleClick}></Chip>
+                    <Chip component='a' href={'/product/' + id} label='View More' onClick={handleClick}></Chip>
                 </Stack>
             </CardActions>
         </Card>
