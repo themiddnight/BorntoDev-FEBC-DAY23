@@ -1,9 +1,5 @@
 import { useEffect, useState } from 'react';
-
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import { Grid, Container, Box, Typography } from '@mui/material'
 
 import Navbar from '../components/Navbar'
 import ProductCard from '../components/ProductCard'

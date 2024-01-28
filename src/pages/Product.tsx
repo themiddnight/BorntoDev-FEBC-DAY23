@@ -1,17 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
-
-import Grid from '@mui/material/Grid'
-import Container from '@mui/material/Container'
-import Stack from '@mui/material/Stack'
-import Card from '@mui/material/Card'
-import Typography from '@mui/material/Typography'
-import Input from '@mui/material/Input'
-import Button from '@mui/material/Button'
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
+import { Grid, Container, Stack, Card, Typography, Input, Button, List, ListItem, ListItemText, Divider } from '@mui/material'
 
 import Navbar from '../components/Navbar'
 import StandardImageList from '../components/ImageList';
@@ -31,21 +20,24 @@ type CommentType = {
     }
 }
 
+type ProductType = {
+    id: string
+    title: string
+    brand: string
+    description: string
+    price: number
+    thumbnail: string
+    images: [string]
+	category: string
+	stock: number
+	rating: number
+}
+
 function Product() {
 	const { id } = useParams<{ id: string }>()
 
-	const [loading, setLoading] = useState(false)
-	const [product, setProduct] = useState({
-		id: '',
-		title: '',
-		description: '',
-		price: '',
-		rating: 0,
-		stock: 0,
-		brand: '',
-		category: '',
-		images: [],
-	})
+	const [loading, setLoading] = useState(true)
+	const [product, setProduct] = useState({} as ProductType)
 
 	const [comments, setComments] = useState([{
 		id: '',
@@ -58,18 +50,15 @@ function Product() {
 	}])
 
 	useEffect(() => {
-		setLoading(true)
 		axios.get(`https://dummyjson.com/products/${id}`)
 			.then(response => {
 				response.data.price = formatNumber(response.data.price)
 				setProduct(response.data)
-				setLoading(false)
 			})
 			.catch(error => {
 				console.log(error)
 			})
 
-		setLoading(true)
 		axios.get(`https://dummyjson.com/comments?limit=0`)
 			.then(response => {
 				const commentsData = response.data.comments.filter((comment: CommentType) => comment.postId === Number(id))

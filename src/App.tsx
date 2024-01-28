@@ -2,6 +2,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { blueGrey } from "@mui/material/colors"
 
 import Routes from './routes'
+import { CssBaseline } from '@mui/material';
 
 const theme = createTheme({
   palette: {
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Routes />
     </ThemeProvider>
   )
